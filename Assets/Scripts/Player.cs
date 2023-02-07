@@ -52,7 +52,7 @@ public abstract class Player : MonoBehaviour
 
     private void Update()
     {
-        if (state != PlayerState.Digging)
+        if (state != PlayerState.Digging && GameManager.instance.isPlaying)
         {
             if (skeletonAnimation.AnimationName != walk.name && rb.velocity != Vector2.zero)
             {

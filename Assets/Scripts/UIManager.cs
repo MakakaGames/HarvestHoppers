@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject tutorialCanvas;
-    [SerializeField] GameObject winCanvas;
-    [SerializeField] GameObject loseCanvas;
-    [SerializeField] GameObject pauseCanvas;
-    [SerializeField] GameObject mainMenuCanvas;
+    [SerializeField] private GameObject tutorialCanvas;
+    [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject loseCanvas;
+    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject mainMenuCanvas;
+    [SerializeField] private GameObject settingsCanvas;
 
     private AudioSource mainMusic;
 
@@ -23,15 +24,31 @@ public class UIManager : MonoBehaviour
         GameManager.OnLose += ShowLoseCanvas;
     }
 
+    private void Update()
+    {
+        if (settingsCanvas.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseCanvas.activeSelf)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
     public void LoadMainMenu()
     {
         GameManager.instance.LoadMainMenu();
+        settingsCanvas.SetActive(false);
     }
 
     public void OnPlayClicked()
     {
         GameManager.instance.currentLevelId = 0;
-        LoadNextLevel();
+        GameManager.instance.LoadLevel();
     }
 
     public void CloseGame()
@@ -43,6 +60,7 @@ public class UIManager : MonoBehaviour
     {       
         Cursor.visible = true;
         Time.timeScale = 0;
+        settingsCanvas.SetActive(false);
         tutorialCanvas.gameObject.SetActive(true);
     }
 
@@ -51,6 +69,10 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
         tutorialCanvas.SetActive(false);
+        if (!settingsCanvas.activeSelf)
+        {
+            settingsCanvas.SetActive(true);
+        }
     }
 
     public void Pause()
@@ -64,7 +86,7 @@ public class UIManager : MonoBehaviour
     {
         Cursor.visible = false;
         Time.timeScale = 1;
-        pauseCanvas.SetActive(true);
+        pauseCanvas.SetActive(false);
     }
 
     public void ShowWinCanvas()
@@ -79,14 +101,15 @@ public class UIManager : MonoBehaviour
         loseCanvas.SetActive(true);
     }
 
-    public void LoadNextLevel()
-    {
-        GameManager.instance.LoadLevel();
-    }
-
     private void OnDestroy()
     {
         GameManager.OnWin -= ShowWinCanvas;
         GameManager.OnLose -= ShowLoseCanvas;
+    }
+
+    public void LoadNewLevel()
+    {
+        GameManager.instance.LoadLevel();
+        settingsCanvas.SetActive(true);
     }
 }

@@ -66,7 +66,7 @@ public class Character : MonoBehaviour
 
     private void OnRootAquired(Character character, Root root)
     {
-        if (character == this)
+        if (character == this && GameManager.instance.isPlaying)
         {
             if (root.rootType == requiredRootType || root.rootType == Root.RootType.Buryak)
             {
@@ -99,6 +99,10 @@ public class Character : MonoBehaviour
 
     private void OnLevelEnded()
     {
+        if (getRootCoroutine != null)
+        {
+            StopCoroutine(getRootCoroutine);
+        }
         mainCanvas.gameObject.SetActive(false);
     }
 

@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public bool isPlaying;
+    [HideInInspector] public Level curLevel;
+
     public List<Level> levels;
 
     public static GameManager instance;
@@ -19,7 +21,8 @@ public class GameManager : MonoBehaviour
     public static UnityAction OnWin;
     public static UnityAction OnLose;
     public int currentLevelId = 2;
-    [HideInInspector] public Level curLevel;
+    private AudioSource mainMusic;
+
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        mainMusic = GetComponent<AudioSource>();
         LoadMainMenu();
     }
 
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        mainMusic.Stop();
+
         if (curLevel)
             Destroy(curLevel.gameObject);
 
@@ -56,6 +62,11 @@ public class GameManager : MonoBehaviour
             collectedRootsAmount = 0;
             curLevel = Instantiate(levels.Find(x => x.levelId == currentLevelId));
             isPlaying = true;
+            if (currentLevelId != 2)
+            {
+                mainMusic.Play();
+                mainMusic.loop = true;
+            }
         }
     }
 
@@ -68,6 +79,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         isPlaying = false;
+        mainMusic.Stop();
         currentLevelId++;
         DOTween.KillAll();
         OnWin?.Invoke();
@@ -76,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         isPlaying = false;
+        mainMusic.Stop();
         DOTween.KillAll();
         OnLose?.Invoke();
     }
