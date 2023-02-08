@@ -222,7 +222,7 @@ MonoBehaviour:
   rotDuration: 5
   topRenderer: {fileID: 8414352236713392958}
   bottomRenderer: {fileID: 8414352236842436492}
-  spawnOffset: {x: 0.1, y: 0.1, z: 0}
+  spawnOffset: {x: 0, y: 0, z: 0}
   growScale: {x: 0.4, y: 0.4, z: 0.4}
   growDuration: 4
   chance: 3

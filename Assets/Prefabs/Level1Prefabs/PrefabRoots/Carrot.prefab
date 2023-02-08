@@ -131,14 +131,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abd960a01e1109499c51ed7b837f21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnChance: 1
-  maxSpawnChance: 11
+  minSpawnChance: 0
+  maxSpawnChance: 10
   jumpPower: 1.5
   jumpDuration: 0.75
   rotDuration: 5
   topRenderer: {fileID: 2830445969247969437}
   bottomRenderer: {fileID: 2830445969868707722}
-  spawnOffset: {x: 0, y: 0.1, z: 0}
+  spawnOffset: {x: 0, y: 0, z: 0}
   growScale: {x: 0.4, y: 0.4, z: 0.4}
   growDuration: 4
   chance: 10

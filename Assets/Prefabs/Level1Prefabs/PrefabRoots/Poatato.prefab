@@ -47,14 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abd960a01e1109499c51ed7b837f21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnChance: 11
-  maxSpawnChance: 21
+  minSpawnChance: 10
+  maxSpawnChance: 20
   jumpPower: 1.5
   jumpDuration: 0.75
   rotDuration: 5
   topRenderer: {fileID: 8277154057453273435}
   bottomRenderer: {fileID: 8277154057592700393}
-  spawnOffset: {x: 0.1, y: 0.1, z: 0}
+  spawnOffset: {x: 0, y: 0, z: 0}
   growScale: {x: 0.4, y: 0.4, z: 0.4}
   growDuration: 4
   chance: 10
