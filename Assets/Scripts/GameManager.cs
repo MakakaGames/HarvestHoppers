@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour
         {
             collectedRootsAmount = 0;
             curLevel = Instantiate(levels.Find(x => x.levelId == currentLevelId));
-            isPlaying = true;
             if (currentLevelId != 2)
             {
                 mainMusic.Play();
                 mainMusic.loop = true;
+                isPlaying = true;
             }
         }
     }

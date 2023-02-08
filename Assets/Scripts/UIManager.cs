@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject loseCanvas;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject mainMenuCanvas;
-    [SerializeField] private GameObject settingsCanvas;
 
     private AudioSource mainMusic;
 
@@ -26,7 +25,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (settingsCanvas.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if (GameManager.instance.isPlaying && Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseCanvas.activeSelf)
             {
@@ -42,7 +41,6 @@ public class UIManager : MonoBehaviour
     public void LoadMainMenu()
     {
         GameManager.instance.LoadMainMenu();
-        settingsCanvas.SetActive(false);
     }
 
     public void OnPlayClicked()
@@ -60,7 +58,6 @@ public class UIManager : MonoBehaviour
     {       
         Cursor.visible = true;
         Time.timeScale = 0;
-        settingsCanvas.SetActive(false);
         tutorialCanvas.gameObject.SetActive(true);
     }
 
@@ -69,10 +66,6 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
         tutorialCanvas.SetActive(false);
-        if (!settingsCanvas.activeSelf)
-        {
-            settingsCanvas.SetActive(true);
-        }
     }
 
     public void Pause()
@@ -110,6 +103,5 @@ public class UIManager : MonoBehaviour
     public void LoadNewLevel()
     {
         GameManager.instance.LoadLevel();
-        settingsCanvas.SetActive(true);
     }
 }
