@@ -196,8 +196,8 @@ public class Root : MonoBehaviour
 
     private void OnDestroy()
     {
-        scaleSequence.Kill();
         StopRotting();
+        scaleSequence.Kill();
     }
 
     public enum RootType
