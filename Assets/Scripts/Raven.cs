@@ -25,6 +25,7 @@ public class Raven : MonoBehaviour
     private Spine.AnimationState animationState;
     private Coroutine peckingCoroutine;
     private Vector3 peckOffset;
+  //  public AudioSource RavenSound;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class Raven : MonoBehaviour
             OnScared?.Invoke(this);
         }
         animationState.SetAnimation(0, fly, true);
+      //  RavenSound.Play();
         var randomXValue = Random.Range(0, randomXValues.Length);
         var randomY = Random.Range(7, 11);
         var randomX = randomXValues[randomXValue];

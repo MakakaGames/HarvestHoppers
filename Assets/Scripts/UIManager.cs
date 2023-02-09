@@ -25,8 +25,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(GameManager.instance.isPlaying);
+
         if (GameManager.instance.isPlaying && Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("kekw");
             if (pauseCanvas.activeSelf)
             {
                 Unpause();
@@ -103,5 +106,10 @@ public class UIManager : MonoBehaviour
     public void LoadNewLevel()
     {
         GameManager.instance.LoadLevel();
+    }
+    
+    public void CreditsLink()
+    {
+         Application.OpenURL("https://globalgamejam.org/2023/games/harvest-hoppers-1");
     }
 }
