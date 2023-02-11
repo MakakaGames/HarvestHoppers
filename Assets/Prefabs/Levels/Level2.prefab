@@ -12232,10 +12232,6 @@ MonoBehaviour:
   loseCanvas: {fileID: 26023614384831669}
   pauseCanvas: {fileID: 6724150019283211915}
   mainMenuCanvas: {fileID: 0}
-  mainMusic: {fileID: 5957410225078727383}
-  winMusic: {fileID: 7582676226273901314}
-  looseMusic: {fileID: 3511184246774921734}
-  menuMusic: {fileID: 4522978172632410977}
 --- !u!1 &8460264181918807994
 GameObject:
   m_ObjectHideFlags: 0

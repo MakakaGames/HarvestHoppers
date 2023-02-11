@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject mainMenuCanvas;
 
-    private AudioSource mainMusic;
+    public AudioSource mainMusic;
+    public AudioSource menuMusic;
+    public AudioSource winMusic;
+    public AudioSource looseMusic;
 
     private void Start()
     {
@@ -71,6 +74,7 @@ public class UIManager : MonoBehaviour
 
     public void HideTutorialCanvas()
     {
+        mainMusic.Play();
         Cursor.visible = false;
         Time.timeScale = 1;
         tutorialCanvas.SetActive(false);
@@ -78,6 +82,7 @@ public class UIManager : MonoBehaviour
 
     public void Pause()
     {
+        mainMusic.Pause();
         Cursor.visible = true;
         Time.timeScale = 0;
         pauseCanvas.SetActive(true);
@@ -85,6 +90,7 @@ public class UIManager : MonoBehaviour
 
     public void Unpause()
     {
+        mainMusic.Play();
         Cursor.visible = false;
         Time.timeScale = 1;
         pauseCanvas.SetActive(false);
@@ -92,12 +98,16 @@ public class UIManager : MonoBehaviour
 
     public void ShowWinCanvas()
     {
+        mainMusic.Pause();
+        winMusic.Play();
         Cursor.visible = true;
         winCanvas.SetActive(true);
     }
 
     public void ShowLoseCanvas()
     {
+        mainMusic.Pause();
+        looseMusic.Play();
         Cursor.visible = true;
         loseCanvas.SetActive(true);
     }
@@ -111,5 +121,9 @@ public class UIManager : MonoBehaviour
     public void LoadNewLevel()
     {
         GameManager.instance.LoadLevel();
+    }
+    public void CreditsURL()
+    {
+        Application.OpenURL("https://makakaua.itch.io/harvest-hoppers");
     }
 }

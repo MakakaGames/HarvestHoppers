@@ -171,7 +171,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6565950232614797569}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CreditsLink
+        m_MethodName: CreditsURL
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1852,10 +1852,6 @@ MonoBehaviour:
   loseCanvas: {fileID: 790130664721782067}
   pauseCanvas: {fileID: 3679064645861026656}
   mainMenuCanvas: {fileID: 726373737956554424}
-  mainMusic: {fileID: 3221512712158781627}
-  winMusic: {fileID: 4740263150922934947}
-  looseMusic: {fileID: 4929465858124412965}
-  menuMusic: {fileID: 0}
 --- !u!1 &3679064645861026656
 GameObject:
   m_ObjectHideFlags: 0
