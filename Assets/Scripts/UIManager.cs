@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if(GameManager.instance.currentLevelId == 0)
+        if (GameManager.instance.currentLevelId == 0)
         {
             ShowTutorialCanvas();
         }
@@ -25,7 +25,15 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.isPlaying && Input.GetKeyDown(KeyCode.Escape))
+        if (mainMenuCanvas.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            OnPlayClicked();
+        }
+        else if (tutorialCanvas.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            HideTutorialCanvas();
+        }
+        else if (GameManager.instance.isPlaying && Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseCanvas.activeSelf)
             {
@@ -55,7 +63,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void ShowTutorialCanvas()
-    {       
+    {
         Cursor.visible = true;
         Time.timeScale = 0;
         tutorialCanvas.gameObject.SetActive(true);
