@@ -3281,9 +3281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367455dc32d72ba42a978425469d1714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayStartColor: {r: 0.32941177, g: 0.29411766, b: 0.2627451, a: 1}
-  dayEndColor: {r: 0.028978268, g: 0.41509432, b: 0.41509432, a: 1}
-  dayMiddleColor: {r: 0.2627451, g: 0.23921569, b: 0.21568628, a: 1}
+  dayStartColor: {r: 0.3882353, g: 0.33333334, b: 0.28235295, a: 1}
+  dayEndColor: {r: 0.2627451, g: 0.23921569, b: 0.21568628, a: 1}
+  dayMiddleColor: {r: 0.7137255, g: 0.74509805, b: 0.74509805, a: 1}
   sunMidPos: {x: 4.3, y: 5.5, z: -1}
   sunEndPos: {x: 11.25, y: 1.8, z: -1}
 --- !u!212 &1682514685
@@ -3349,7 +3349,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.32941177, g: 0.29411766, b: 0.2627451, a: 1}
+  m_Color: {r: 0.38679248, g: 0.33154255, b: 0.28243148, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
