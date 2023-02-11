@@ -10,8 +10,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject mainMenuCanvas;
 
-    private AudioSource mainMusic;
-
+    public AudioSource mainMusic;
+    public AudioSource winMusic;
+    public AudioSource looseMusic;
+    public AudioSource menuMusic;
+   
     private void Start()
     {
         if(GameManager.instance.currentLevelId == 0)
@@ -29,7 +32,6 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.instance.isPlaying && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("kekw");
             if (pauseCanvas.activeSelf)
             {
                 Unpause();
@@ -37,6 +39,7 @@ public class UIManager : MonoBehaviour
             else
             {
                 Pause();
+
             }
         }
     }
@@ -44,12 +47,14 @@ public class UIManager : MonoBehaviour
     public void LoadMainMenu()
     {
         GameManager.instance.LoadMainMenu();
+        mainMusic.Pause();
     }
 
     public void OnPlayClicked()
     {
         GameManager.instance.currentLevelId = 0;
         GameManager.instance.LoadLevel();
+        mainMusic.Pause();
     }
 
     public void CloseGame()
@@ -60,6 +65,7 @@ public class UIManager : MonoBehaviour
     public void ShowTutorialCanvas()
     {       
         Cursor.visible = true;
+        mainMusic.Pause();
         Time.timeScale = 0;
         tutorialCanvas.gameObject.SetActive(true);
     }
@@ -69,11 +75,13 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
         tutorialCanvas.SetActive(false);
+        mainMusic.Play();
     }
 
     public void Pause()
     {
         Cursor.visible = true;
+        mainMusic.Pause();
         Time.timeScale = 0;
         pauseCanvas.SetActive(true);
     }
@@ -83,18 +91,24 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
         pauseCanvas.SetActive(false);
+        mainMusic.Play();
     }
 
     public void ShowWinCanvas()
     {
+        mainMusic.Pause();
+        winMusic.Play();
         Cursor.visible = true;
         winCanvas.SetActive(true);
     }
 
     public void ShowLoseCanvas()
     {
+        mainMusic.Pause();
+        looseMusic.Play();
         Cursor.visible = true;
         loseCanvas.SetActive(true);
+       
     }
 
     private void OnDestroy()
@@ -105,11 +119,14 @@ public class UIManager : MonoBehaviour
 
     public void LoadNewLevel()
     {
+        looseMusic.Pause();
+        winMusic.Pause();
         GameManager.instance.LoadLevel();
+        mainMusic.Play();
     }
     
     public void CreditsLink()
     {
-         Application.OpenURL("https://globalgamejam.org/2023/games/harvest-hoppers-1");
+         Application.OpenURL("https://makakaua.itch.io/harvest-hoppers");
     }
 }
