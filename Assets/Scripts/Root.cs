@@ -69,13 +69,14 @@ public class Root : MonoBehaviour
             alpha = startingRoat / duration;
             yield return new WaitForEndOfFrame();
         }
+        OnRootRotten?.Invoke(this);
         Destroy(gameObject);
     }
 
     public IEnumerator JumpToPlayer(Player player, float digDuration)
     {
         StopRotting();
-        yield return new WaitForSeconds(digDuration);
+        yield return new WaitForSeconds(digDuration/2);
         SetRenderersOrder(4);
         if (rootType != RootType.Sornyak)
         {

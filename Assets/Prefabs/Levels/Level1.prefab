@@ -8802,7 +8802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6801e404c5e30664faa0f21ba6160486, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 6fbbb6e2de9c8f842bfd7cdbdaadd080, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -8829,8 +8829,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 134b4252-e624-4268-89ca-9ad93fa26302
-    m_ActionName: gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: 127e7c47-9f33-4442-98fc-fd8e10bdfd49
+    m_ActionName: gameplay2/MoveSecondPlayer[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3016646711171104920}
@@ -8845,43 +8845,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e34dcd2a-84d8-4397-8070-5313256d38b3
-    m_ActionName: gameplay/Interact[/Keyboard/e,/Keyboard/rightShift]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3016646711171104920}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnPlayerMove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6ece2c46-8b27-4676-9cc1-24a2d0e56961
-    m_ActionName: gameplay/MoveMultiplayer[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3016646711171104920}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnInterract
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0892fbfa-1448-4d10-bff7-77e6b9e6018f
-    m_ActionName: gameplay/InteractMultiplayer[/Keyboard/rightShift]
+    m_ActionId: d5472fbb-6d80-4f06-b989-161f41df6a30
+    m_ActionName: gameplay2/InteractSecondPlayer[/Keyboard/rightShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: gameplay
+  m_DefaultActionMap: gameplay2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!50 &5135543687650879172
@@ -11853,14 +11821,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e34dcd2a-84d8-4397-8070-5313256d38b3
     m_ActionName: gameplay/Interact[/Keyboard/e,/Keyboard/rightShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6ece2c46-8b27-4676-9cc1-24a2d0e56961
-    m_ActionName: gameplay/MoveMultiplayer[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0892fbfa-1448-4d10-bff7-77e6b9e6018f
-    m_ActionName: gameplay/InteractMultiplayer[/Keyboard/rightShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay

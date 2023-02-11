@@ -34,7 +34,7 @@ public class Ridge : MonoBehaviour
     {
         if (this.root == root)
         {
-            isEmpty = !isEmpty;
+            isEmpty = true;
         }
     }
 }

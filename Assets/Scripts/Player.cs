@@ -105,7 +105,6 @@ public abstract class Player : MonoBehaviour
                         state = PlayerState.Digging;
                         DigingSound.Play();
                         skeletonAnimationState.SetAnimation(0, dig, false);
-                        closestRidge.isEmpty = true;
                         rb.velocity = Vector2.zero;
                         FinishDigging();
                     }
@@ -148,6 +147,7 @@ public abstract class Player : MonoBehaviour
     public void FinishDigging()
     {
         StartCoroutine(pickedRoot.JumpToPlayer(this, dig.Animation.Duration));
+        closestRidge.isEmpty = true;
     }
 
     public void SetState(PlayerState state)
