@@ -37,4 +37,9 @@ public class Ridge : MonoBehaviour
             isEmpty = true;
         }
     }
+
+    private void OnDestroy()
+    {
+        Root.OnRootRotten -= ToggleIsEmpty;
+    }
 }
