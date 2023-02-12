@@ -47,9 +47,9 @@ public class Root : MonoBehaviour
         scaleSequence.Append(transform.DOScale(growScale + new Vector3(0.1f, 0.1f, 0.1f), 0.2f));
         scaleSequence.Append(transform.DOScale(growScale - new Vector3(0.035f, 0.035f, 0.035f), 0.2f));
         scaleSequence.Append(transform.DOScale(growScale, 0.2f));
-        scaleSequence.Play();
+        scaleSequence.Play()
+            .OnComplete(() => hasGrown = true);
     
-        hasGrown = true;
         if (rootType != RootType.Sornyak)
         {
             rotCoroutine = StartCoroutine(Rot(rotDuration));
@@ -91,6 +91,7 @@ public class Root : MonoBehaviour
         else
         {
             player.SetState(Player.PlayerState.Moving);
+            DOTween.Kill(this);
             Destroy(gameObject);
         }
     }

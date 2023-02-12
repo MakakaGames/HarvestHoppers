@@ -72,6 +72,7 @@ public class Raven : MonoBehaviour
     {
         if (targetRidge && targetRidge.root)
         {
+            RavenSound.Play();
             targetRidge.root.StopRotting();
             ChangeRotation(targetRidge.transform.position);
             animationState.SetAnimation(0, fly, true);
@@ -107,7 +108,6 @@ public class Raven : MonoBehaviour
         ChangeRotation(targetRidge.transform.position);
         animationState.SetAnimation(0, dive, true);
         canBeScared = true;
-        RavenSound.Play();
         yield return new WaitForSeconds(dive.Animation.Duration);
         canBeScared = false;
         pickedRoot = targetRidge.root;

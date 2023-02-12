@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     public AudioSource menuMusic;
     public AudioSource winMusic;
     public AudioSource loseMusic;
+    public AudioSource buttonClickAudio;
+    public AudioSource buttonHighlightAudio;
+
+    private AudioSource[] audioSources;
 
     private void Start()
     {
@@ -22,6 +26,7 @@ public class UIManager : MonoBehaviour
             ShowTutorialCanvas();
         }
 
+        audioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
         GameManager.OnWin += ShowWinCanvas;
         GameManager.OnLose += ShowLoseCanvas;
     }
@@ -51,13 +56,18 @@ public class UIManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        foreach (var audio in audioSources)
+        {
+            if (audio)
+                audio.Pause();
+        }
         menuMusic.Play();
         GameManager.instance.LoadMainMenu();
     }
 
     public void OnPlayClicked()
     {
-        menuMusic.Pause();
+        buttonClickAudio.Play();
         GameManager.instance.currentLevelId = 0;
         GameManager.instance.LoadLevel(mainMusic);
     }
@@ -101,18 +111,38 @@ public class UIManager : MonoBehaviour
 
     public void ShowWinCanvas()
     {
-        mainMusic.Pause();
+        foreach (var audio in audioSources)
+        {
+            if (audio)
+                audio.Pause();
+        }
         winMusic.Play();
+        winMusic.loop = false;
         Cursor.visible = true;
         winCanvas.SetActive(true);
     }
 
     public void ShowLoseCanvas()
     {
-        mainMusic.Pause();
+        foreach (var audio in audioSources)
+        {
+            if (audio)
+                audio.Pause();
+        }
         loseMusic.Play();
+        loseMusic.loop = false;
         Cursor.visible = true;
         loseCanvas.SetActive(true);
+    }
+
+    public void PlayAudioOnClick()
+    {
+        buttonClickAudio.Play();
+    }
+
+    public void OnHighlight()
+    {
+        buttonHighlightAudio.Play();
     }
 
     private void OnDestroy()
