@@ -8,6 +8,7 @@ public class Garden : MonoBehaviour
     [SerializeField] private List<Root> roots;
     [SerializeField] private Transform rootParent;
     [SerializeField] private int obstaclesSpawnAmount;
+    [SerializeField] private int rootsSpawnAmount;
     [SerializeField] private List<Obstacle> obstacles;
     [SerializeField] private Transform obstacleParent;
     [SerializeField] private float spawnDelay = 4f;
@@ -23,8 +24,25 @@ public class Garden : MonoBehaviour
     void Start()
     {
         SpawnObstaclesOnStart();
+        SpawnRootsOnStart();
         StartCoroutine(SpawnRoots());
         StartCoroutine(SpawnRavens());
+    }
+
+    private void SpawnRootsOnStart()
+    {
+        Root root;
+
+        for (int i = 0; i < rootsSpawnAmount; i++)
+        {
+            FindRandomEmptyRidge();
+            if (randomEmptyRidge)
+            {
+                root = Root.SpawnRootWithChance(roots);
+                randomEmptyRidge.isEmpty = false;
+                randomEmptyRidge.root = Instantiate(root, randomEmptyRidge.transform.position + root.spawnOffset, root.transform.rotation, rootParent);
+            }
+        }
     }
 
     private void SpawnObstaclesOnStart()

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadLevel()
+    public void LoadLevel(AudioSource mainTheme = null)
     {
         if (curLevel)
             Destroy(curLevel.gameObject);
@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
             collectedRootsAmount = 0;
             curLevel = Instantiate(levels.Find(x => x.levelId == currentLevelId));
             if (currentLevelId != 2)
-            {
+            {   
+                mainTheme.Play();
                 isPlaying = true;
             }
         }

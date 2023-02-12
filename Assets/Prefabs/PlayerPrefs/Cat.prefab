@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1150207888121827182}
   - component: {fileID: 3916680590394678381}
   - component: {fileID: 1780092184}
-  - component: {fileID: 1644594927719108684}
   m_Layer: 6
   m_Name: RigCollider
   m_TagString: Untagged
@@ -72,18 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d04ea11922dbe45a2130d64a14ad7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1644594927719108684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810117520854220354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d04ea11922dbe45a2130d64a14ad7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6007710804378714177
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,8 +112,8 @@ AudioSource:
   m_GameObject: {fileID: 6007710804378714177}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ffb1070c06a52cd418463442aba4ed6a, type: 3}
+  OutputAudioMixerGroup: {fileID: 4093802766850943845, guid: 2014bf89412cdb84eba7a4cd39009120, type: 2}
+  m_audioClip: {fileID: 8300000, guid: ab4e7f66eebbcca429193abfea7ce649, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -243,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6594981141056581216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -366,14 +353,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e34dcd2a-84d8-4397-8070-5313256d38b3
     m_ActionName: gameplay/Interact[/Keyboard/e,/Keyboard/rightShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6ece2c46-8b27-4676-9cc1-24a2d0e56961
-    m_ActionName: gameplay/MoveMultiplayer[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0892fbfa-1448-4d10-bff7-77e6b9e6018f
-    m_ActionName: gameplay/InteractMultiplayer[/Keyboard/rightShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
@@ -559,12 +538,12 @@ AudioSource:
   m_GameObject: {fileID: 7877679817315720681}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d74ace2f38bf5594ba23455fabbad857, type: 3}
+  OutputAudioMixerGroup: {fileID: 4093802766850943845, guid: 2014bf89412cdb84eba7a4cd39009120, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 9f618cc237fd51146bc26edd3d73e507, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

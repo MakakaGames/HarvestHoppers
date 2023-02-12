@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public AudioSource mainMusic;
     public AudioSource menuMusic;
     public AudioSource winMusic;
-    public AudioSource looseMusic;
+    public AudioSource loseMusic;
 
     private void Start()
     {
@@ -51,13 +51,15 @@ public class UIManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        menuMusic.Play();
         GameManager.instance.LoadMainMenu();
     }
 
     public void OnPlayClicked()
     {
+        menuMusic.Pause();
         GameManager.instance.currentLevelId = 0;
-        GameManager.instance.LoadLevel();
+        GameManager.instance.LoadLevel(mainMusic);
     }
 
     public void CloseGame()
@@ -67,6 +69,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowTutorialCanvas()
     {
+        mainMusic.Pause();
         Cursor.visible = true;
         Time.timeScale = 0;
         tutorialCanvas.gameObject.SetActive(true);
@@ -107,7 +110,7 @@ public class UIManager : MonoBehaviour
     public void ShowLoseCanvas()
     {
         mainMusic.Pause();
-        looseMusic.Play();
+        loseMusic.Play();
         Cursor.visible = true;
         loseCanvas.SetActive(true);
     }
@@ -120,7 +123,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadNewLevel()
     {
-        GameManager.instance.LoadLevel();
+        GameManager.instance.LoadLevel(mainMusic);
     }
     public void CreditsURL()
     {
