@@ -56,20 +56,19 @@ public class UIManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        foreach (var audio in audioSources)
-        {
-            if (audio)
-                audio.Pause();
-        }
-        menuMusic.Play();
         GameManager.instance.LoadMainMenu();
     }
 
     public void OnPlayClicked()
     {
+        foreach (var audio in audioSources)
+        {
+            if (audio)
+                audio.Pause();
+        }
         buttonClickAudio.Play();
         GameManager.instance.currentLevelId = 0;
-        GameManager.instance.LoadLevel(mainMusic);
+        GameManager.instance.LoadLevel();
     }
 
     public void CloseGame()
@@ -153,7 +152,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadNewLevel()
     {
-        GameManager.instance.LoadLevel(mainMusic);
+        GameManager.instance.LoadLevel();
     }
     public void CreditsURL()
     {
